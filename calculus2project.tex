@@ -251,14 +251,14 @@
 \newpage
 
 \section{Introduction}
-In this report, our group will based on the book:\textit{ Introduction to the Mathematics of Medical Imaging} by Charles L. Epstein to discuss how can we reconstruct a two-dimensional object from its shadows using geometry and algebra. Also in this report, our group will clearly explain the formula for the area $D_h$ of the two-dimensional object in Exercise 1.2.14 in the book
+In this report, our group will based on the book:\textit{ Introduction to the Mathematics of Medical Imaging} by Charles L. Epstein to discuss how we can reconstruct a two-dimensional object from its shadows using geometry and algebra. Also in this report, our group will clearly explain the formula for the area $D_h$ of the two-dimensional object in Exercise 1.2.14 in the book
 \section{The Space of Lines in the Plane}
 \subsection{Basic theory about lines}
-A line in the plane is a set of point which satisfy the equation of the form
+A line in the plane is a set of points that satisfy an equation of the form:
 \begin{equation}\label{eq:1}
     ax + by = c
 \end{equation}
-where $a^2+b^2\neq 0$. Divided each sides of (\ref{eq:1}) by $a^2+b^2$, we get the same set of points
+where $a^2+b^2\neq 0$. Divided each sides by (\ref{eq:1}) by $a^2+b^2$, we get the same set of points
 \begin{equation*}
     \frac{a}{\sqrt{a^2+b^2}}x + \frac{b}{\sqrt{a^2+b^2}}y = \frac{c}{\sqrt{a^2+b^2}}
 \end{equation*}
@@ -270,12 +270,12 @@ and a real number t. The line $l_{t,\omega}$ is the set of points in $R^2$ satis
 \begin{equation*}
     \omega_1 x + \omega_2 y = t
 \end{equation*}
-Writting in the cross prodcut form, we get
+Writting in the dot prodcut form, we get
 \begin{equation}\label{eq:3}
     \langle (x,y), \omega \rangle = t
 \end{equation}
 The vector $\omega$ is perpendicular to this line\\ 
-Parameterizing the points on the unit circle by a real number, we set
+Parameterizing the points on the unit circle by a real number, we get
 \begin{equation}\label{paraomega}
     \omega(\theta) = (cos(\theta),sin(\theta))
 \end{equation}
@@ -334,7 +334,7 @@ Second, the relation between $\hat{\omega}$ and $\omega$ is
 \begin{equation}\label{difhat}
     \hat{\omega} = \partial_\theta\omega 
 \end{equation}
-Because $\omega$ is perpendicular to $\hat{\omega}$, so the standard cross product of $\hat{\omega}$ and $\omega$ must be zero
+Because $\omega$ is perpendicular to $\hat{\omega}$, so the standard dot product of $\hat{\omega}$ and $\omega$ must be zero
 \begin{equation*}
     \langle \hat{\omega},\omega \rangle = \hat{\omega_x}\omega_x + \hat{\omega_y}\omega_y = 0
 \end{equation*}
@@ -350,7 +350,7 @@ Finally, we can conclude that
 \begin{equation*}
     \hat{\omega} = \partial_\theta\omega 
 \end{equation*}
-Equations (\ref{newformeq}) and (\ref{difhat}) are crucial for the next part of the reconstruction process. 
+Equations (\ref{newformeq}) and (\ref{difhat}) play a pivotal role in facilitating the subsequent steps of the reconstruction process. 
 \section{Reconstructing an Object from Its Shadows}
 First, we choose an orientation for the boundary of D, this operation is familiar from Green's theorem in the plane. The positive direction of the boundary of D is selected so that when facing in this direction the reigon lies to the left, the counterclockwise direction is the positive direction.\\ \\
 With a fix source position $\omega(\theta)$, in the set of parallel lines $\{l_{t,\omega(\theta)}:t\in R \}$, there are two values of t, $t_1 < t_2$, such that lines $l_{t_1,\omega(\theta)}$ and $l_{t_2,\omega(\theta)}$ are tangent to point $T_1$ and $T_2$ respectively which are opposite to each other. With the orientation of the boundary, it is agree that $l_{t_1,\omega(\theta)}$ and $l_{t_2,\omega(\theta)}$ are parallel but in opposite direction. Define $h_D$, the shadow function of D, by setting
@@ -360,7 +360,7 @@ With a fix source position $\omega(\theta)$, in the set of parallel lines $\{l_{
 \begin{equation*}
     h_D(\theta + \pi) = -t_2
 \end{equation*}
-Now the shadow function of D depends on $\theta$ belonging to an interval of $\pi$. As $\omega(\theta)$ is $2\pi$ - periodic, the shadow function $h_D$ can be regarded as $2\pi$ - periodic function defined the whole curve. The next problem is how can the boundary of D can be identified from $h_D$\\
+Now the shadow function of D depends on $\theta$ belonging to an interval of $\pi$. As $\omega(\theta)$ is $2\pi$ - periodic, the shadow function $h_D$ can be regarded as $2\pi$ - periodic function defined the whole curve. The next problem is: How can the boundary of D be identified from $h_D$\\
 
 \noindent As $\omega(\theta) = (\cos(\theta),\sin(\theta))$ and $\hat{\omega}(\theta) = (\cos(\theta),\sin(\theta))$, (\ref{newformeq}) show that the set of points making the line $l_{h_D(\theta),\omega(\theta)}$ is given parametrically by
 \begin{equation*}
@@ -405,7 +405,7 @@ From (\ref{eqxy}) and (\ref{eqs})
 \end{equation}
 This is the parametrically function of the boundary of D with $h_D(\theta)$ is the shadow function of D.\\
 
-\noindent Notice that (\ref{eqbound}) is only true if D is strictly convex and $h_D(\theta)$ is a differentiable function. If D is a polygon, the boundary is not differentiable at the vertices, where sharp corners occur. At these points, the shadow function $h_D(\theta)$ may not be differentiable.\\ \\
+\noindent Notice that (\ref{eqbound}) is only true if D is strictly convex and $h_D(\theta)$ is a differentiable function.In a polygon, the boundary is composed of line segments. At the vertices of the polygon, the boundary abruptly changes direction as it transitions from one line segment to another. This abrupt change in direction results in non-differentiability at the vertices, meaning that the derivative of the boundary function does not exist at those points. Therefore, the boundary of a polygon is not differentiable at its vertices. At these points, the shadow function $h_D(\theta)$ may not be differentiable.\\ \\
 With (\ref{eqbound}) the tangent vector to the curve can be re-defined by
 \begin{equation*}
     (x'(\theta),y'(\theta)) = (h''(\theta) + h(\theta))\hat{\omega}(\theta)
