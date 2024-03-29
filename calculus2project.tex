@@ -1,0 +1,538 @@
+\documentclass[a4paper]{article}
+\usepackage{import}
+%\usepackage[english,vietnam]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{array,booktabs}
+\usepackage{a4wide,amssymb,epsfig,latexsym,array,hhline,fancyhdr}
+\usepackage[normalem]{ulem}
+%\usepackage{soul}
+\usepackage{listings}
+\usepackage{colortbl}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol,longtable,amscd}
+\usepackage{diagbox}%Make diagonal lines in tables
+\usepackage{booktabs}
+\usepackage{alltt}
+\usepackage[framemethod=tikz]{mdframed}% For highlighting paragraph backgrounds
+\usepackage{caption,subcaption}
+
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+%\usepackage{minted}
+\usepackage{xcolor} % to access the named colour LightGray
+\definecolor{LightGray}{gray}{0.9}
+%\usemintedstyle{emacs}
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage[unicode]{hyperref}
+\hypersetup{
+    urlcolor=blue,
+    linkcolor=black,
+    citecolor=black,
+    colorlinks=true,
+    pdfpagemode=FullScreen,
+    pdftitle={GROUP 1 CALCULUS 2 PROJECT},
+    } 
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+%\usepackage{background}
+%\backgroundsetup{contents=\includegraphics{Images/hcmut.png}, scale=0.5, opacity=0.25, angle = 0}
+\usepackage[normalem]{ulem}
+
+\def\thesislayout{	% A4: 210 × 297
+	\geometry{
+		a4paper,
+		total={160mm,240mm},  % fix over page
+		left=30mm,
+		top=30mm,
+	}
+}
+\thesislayout
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{Images/hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\textcolor{blue}{\bf \ttfamily Ho Chi Minh City University of Technology}}\\
+		\textbf{\textcolor{blue}{\bf \ttfamily Faculty of Applied Science}}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Group 1 - Reconstructing A Two-dimensional Object From Its Shadows}
+\fancyfoot[R]{\scriptsize \ttfamily Page {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\sloppy
+\captionsetup[figure]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=-9pt}
+%space remove between caption, figure, and text
+\captionsetup[table]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=7pt}
+%space remove between caption, table, and text
+
+%\floatplacement{figure}{H}%forced here float placement automatically for figures
+%\floatplacement{table}{H}%forced here float placement automatically for table
+%the following settings (11 lines) are to remove white space before or after the figures and tables
+%\setcounter{topnumber}{2}
+%\setcounter{bottomnumber}{2}
+%\setcounter{totalnumber}{4}
+%\renewcommand{\topfraction}{0.85}
+%\renewcommand{\bottomfraction}{0.85}
+%\renewcommand{\textfraction}{0.15}
+%\renewcommand{\floatpagefraction}{0.8}
+%\renewcommand{\textfraction}{0.1}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+
+\thesislayout
+
+
+
+\begin{document}
+\begin{titlepage}
+
+\begin{center}
+\textbf{\Large VIETNAM NATIONAL UNIVERSITY HO CHI MINH CITY} \\
+
+\vspace{7pt}
+\textbf{\Large HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY} \\
+
+\vspace{7pt}
+\textbf{\Large FACULTY OF APPLIED SCIENCE}
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=3cm]{Images/hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+
+\begin{center}
+\begin{tabular}{ccc}
+	\multicolumn{3}{l}{\textbf{{\Large \textcolor{blue}{CALCULUS 2}}}}\\
+	~~\\
+	\arrayrulecolor{blue}\hline
+	\\
+	\multicolumn{3}{l}{\textbf{{\Large \textcolor{blue}{Project Report} }}}\\
+	\\
+	
+	\multicolumn{3}{c}{\textbf{{\Huge \textcolor{blue}{Reconstructing A Two-dimensional  }}}}\\
+	\\
+
+    \multicolumn{3}{c}{\textbf{{\Huge \textcolor{blue}{Object From Its Shadows}}}}\\
+	\\
+    % 
+	\arrayrulecolor{blue}\hline \\ \\
+
+    \multicolumn{1}{l}{\textbf{\Large Mentor: Phung Trong Thuc}} \\
+    \\ \\
+    \multicolumn{1}{l}{\textbf{\Large Group 1 - CC15}} \\ \\
+    
+    \multicolumn{1}{l}{\Large \textbf{Name}} & 
+    \multicolumn{1}{l}{\Large \textbf{ID}} \\ \\
+
+    \multicolumn{1}{l}{\Large Bui Khanh An} &
+    \multicolumn{1}{l}{\Large 2352001}\\ \\
+    
+    \multicolumn{1}{l}{\Large Truong Gia Ky Nam} &
+    \multicolumn{1}{l}{\Large 2352787} \\ \\
+
+    \multicolumn{1}{l}{\Large Nguyen Thanh Nguyen} &
+    \multicolumn{1}{l}{\Large 2352832} \\ \\
+    
+    \multicolumn{1}{l}{\Large Pham Quang Tien Thanh} &
+    \multicolumn{1}{l}{\Large 2353103} \\ \\
+
+    \multicolumn{1}{l}{\Large Phan Gia Tan Khang} &
+    \multicolumn{1}{l}{\Large 2353371} \\ \\
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+{\textbf{\Large Ho Chi Minh City, 3/2024}}
+\end{center}
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}
+\setcounter{page}{-2}
+\begin{figure}[!htb]
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width = 4.5cm, height = 6cm]{Images/khanhan.jpg}
+      \caption*{\\ Bui Khanh An \\ 2352001 \\ an.bui2352001@hcmut.edu.vn}
+    \end{minipage}
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width = 4.5cm, height = 6cm]{Images/kynam.jpg}
+      \caption*{\\ \centering Truong Gia Ky Nam \\ 2352787 \\ nam.truonggiaky@hcmut.edu.vn}
+    \end{minipage}
+\end{figure}
+\begin{figure}[!htb]
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width = 4.5cm, height = 6cm]{Images/thanhnguyen.jpg}
+      \caption*{\\ \centering Nguyen Thanh Nguyen \\ 2352832 \\ nguyen.nguyenthanhk23@hcmut.edu.vn}
+    \end{minipage}
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width = 4.5cm, height = 6cm]{Images/phamthanh.jpg}
+      \caption*{\\ \centering Pham Quang Tien Thanh \\ 2353103 \\ thanh.pham04052005@hcmut.edu.vn}
+    \end{minipage}
+\end{figure}
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width = 4.5cm, height = 6cm]{Images/phankhang.jpg}
+    \caption*{\\ Phan Gia Tan Khang \\ 2353371 \\ khang.phangiatan@hcmut.edu.vn}
+\end{figure}
+\newpage
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\newpage
+\thispagestyle{empty}
+\begin{abstract}
+    \noindent This document was made by Group 1 of class CC15 from course Calculus 2 semester 232 with the instruction from Dr. Phung Trong Thuc. This document also serves as the project report for the Math Project that Dr. Thuc give us during the course. By thoroughly read the specified content from the book \textit{Introduction to the Mathematics of Medical Imaging} by Charles L. Epstein and searching information on the Internet, our group is able to gather required information about the topic that Dr. Thuc give us.  
+\end{abstract}
+\newpage
+
+\section{Introduction}
+In this report, our group will based on the book:\textit{ Introduction to the Mathematics of Medical Imaging} by Charles L. Epstein to discuss how can we reconstruct a two-dimensional object from its shadows using geometry and algebra. Also in this report, our group will clearly explain the formula for the area $D_h$ of the two-dimensional object in Exercise 1.2.14 in the book
+\section{The Space of Lines in the Plane}
+\subsection{Basic theory about lines}
+A line in the plane is a set of point which satisfy the equation of the form
+\begin{equation}\label{eq:1}
+    ax + by = c
+\end{equation}
+where $a^2+b^2\neq 0$. Divided each sides of (\ref{eq:1}) by $a^2+b^2$, we get the same set of points
+\begin{equation*}
+    \frac{a}{\sqrt{a^2+b^2}}x + \frac{b}{\sqrt{a^2+b^2}}y = \frac{c}{\sqrt{a^2+b^2}}
+\end{equation*}
+Where the coefficients ($\frac{a}{\sqrt{a^2+b^2}},\frac{b}{\sqrt{a^2+b^2}}$) define a point $\omega$ on the unit circle $x^2 + y^2 = 1$, and the constant $\frac{c}{\sqrt{a^2+b^2}}$ can be any real number. The lines in the plane can be parameterized by a unit vector.
+\begin{equation*}
+    \omega = (\omega_1,\omega_2)
+\end{equation*}
+and a real number t. The line $l_{t,\omega}$ is the set of points in $R^2$ satisfying the equation
+\begin{equation*}
+    \omega_1 x + \omega_2 y = t
+\end{equation*}
+Writting in the cross prodcut form, we get
+\begin{equation}\label{eq:3}
+    \langle (x,y), \omega \rangle = t
+\end{equation}
+The vector $\omega$ is perpendicular to this line\\ 
+Parameterizing the points on the unit circle by a real number, we set
+\begin{equation}\label{paraomega}
+    \omega(\theta) = (cos(\theta),sin(\theta))
+\end{equation}
+As all points on the unit circle can be represent by the pair of value of trigonometric function \textit{sine} and \textit{cosine} of an angle $\theta$. With the $2\pi$ - periodic nature of \textit{sine} and \textit{cosine}, it clear that $\omega(\theta)$ and $\omega(\theta + 2\pi)$ present the same point on the unit circle. Using (\ref{paraomega}), (\ref{eq:3}) can be written as
+\begin{equation}\label{ltw}
+    \langle (x,y),(cos(\theta),sin(\theta))\rangle = t
+\end{equation}
+Both notations for lines and points on the circle are used in the sequel.\\ \\
+The parameterization provided by (t,$\omega$) is much more efficient than that provided by (a, b, c). Note that the set of points satisfying (\ref{eq:3}) is unchanged if (t,$\omega$) is replaced by (-t,$-\omega$). Because, from (3), if we replace (t,$\omega$) by (-t,-$\omega$), we have
+\begin{equation}
+    -\omega_1 x - \omega_2 y = -t
+\end{equation}
+Divided each sides of by -1, we get (3). Thus, as sets,
+\begin{equation}
+    l_{t,\omega} = l_{-t,-\omega}
+\end{equation}
+Therefore, if $l_{t_1,\omega_1} = l_{t_2,\omega_2}$, then either $t_1 = t_2$ and $\omega_1 = \omega_2$ or $t_1 = -t_2$ and $\omega_1 = -\omega_2$.\\
+The pair (t,$\omega$) actually specifies an \textit{oriented line}. That is, we can define the positive direction along the line. The vector
+\begin{equation*}
+    \hat{\omega } = (-\omega_2,\omega_1)
+\end{equation*}
+is perpendicular to $\omega$. Therefore, $\hat{\omega}$ is parallel to $l_{t,\omega}$ and it defines the positive direction or orientation of the line $l_{t,\omega}$. The positive direction of the line is determine by using the determinant of a $2 \times 2$ matrix with vector $\omega$ and $\hat{\omega}$.
+\[
+\begin{vmatrix}
+    \omega_1 & -\omega_2\\
+    \omega_2 & \omega_1 
+\end{vmatrix}
+\]
+This give the result of $+1$. So the vector $\hat{\omega}$ defines the positive direction of the line $l_{t,\omega}$.
+Although vector $-\hat{\omega} = (\omega_2,-\omega_1)$ is also parallel to $l_{t,\omega}$ but its determinant
+\[
+    \begin{vmatrix}
+        \omega_1 & \omega_2\\
+        \omega_2 & -\omega_1 
+    \end{vmatrix}
+\]
+give us the result of $-1$. Therefore, vector $-\hat{\omega}$ define the negative direction of the line $l_{t,\omega}$. Most importantly, this explains how the pair $(t,\omega)$ determines an \textit{oriented line}. 
+%The vector $\omega$ is the direction orthogonal to the line and the number t is called the affine parameter of the line.
+\subsection{Some important transformations}
+First, it is notice that the line $l_{t,\omega}$ beside (\ref{ltw}) can be represent in the form
+\begin{equation}\label{newformeq}
+    l_{t,\omega} = \{ t\omega + s\hat{\omega}: s \in (-\infty,\infty )\} 
+\end{equation}
+When we express (\ref{newformeq}), we have:
+\begin{equation*}
+    (x,y) = \{t(\omega_1,\omega_2) + s(-\omega_2,\omega_1) : s \in (-\infty,\infty )\}
+\end{equation*}
+Writting it in the parametric form,
+\[\begin{cases}
+    x=t\omega_1 - s\omega_2\\
+    y=t\omega_2 + s\omega_1
+\end{cases}
+s\in (-\infty,\infty)\]
+This is the parametric equation form of the line $l_{t,\omega}$ with direction vector $\hat{\omega}$ passing a fixed point ($t\omega_1,t\omega_2$).\\ \\
+Second, the relation between $\hat{\omega}$ and $\omega$ is
+\begin{equation}\label{difhat}
+    \hat{\omega} = \partial_\theta\omega 
+\end{equation}
+Because $\omega$ is perpendicular to $\hat{\omega}$, so the standard cross product of $\hat{\omega}$ and $\omega$ must be zero
+\begin{equation*}
+    \langle \hat{\omega},\omega \rangle = \hat{\omega_x}\omega_x + \hat{\omega_y}\omega_y = 0
+\end{equation*}
+If $\omega = (\omega_1,\omega_2)$ and $\hat{\omega} = (-\omega_2,\omega_1)$ then,
+\begin{equation*}
+    \langle \hat{\omega},\omega \rangle = -\omega_1\omega_2 + \omega_1\omega_2 = 0
+\end{equation*}
+And this is always true for all value of $(\omega_1,\omega_2)$.With $\omega = (cos(\theta),sin(\theta))$, thus it makes $\hat{\omega} = (-sin(\theta),cos(\theta))$. Also, when we take derivative of vector $\omega$ of each component by $\theta$,
+\begin{equation*}
+    \partial_\theta\omega = \partial_\theta(cos(\theta),sin(\theta)) = (-sin(\theta),cos(\theta)) = \hat{\omega}
+\end{equation*}
+Finally, we can conclude that
+\begin{equation*}
+    \hat{\omega} = \partial_\theta\omega 
+\end{equation*}
+Equations (\ref{newformeq}) and (\ref{difhat}) are crucial for the next part of the reconstruction process. 
+\section{Reconstructing an Object from Its Shadows}
+First, we choose an orientation for the boundary of D, this operation is familiar from Green's theorem in the plane. The positive direction of the boundary of D is selected so that when facing in this direction the reigon lies to the left, the counterclockwise direction is the positive direction.\\ \\
+With a fix source position $\omega(\theta)$, in the set of parallel lines $\{l_{t,\omega(\theta)}:t\in R \}$, there are two values of t, $t_1 < t_2$, such that lines $l_{t_1,\omega(\theta)}$ and $l_{t_2,\omega(\theta)}$ are tangent to point $T_1$ and $T_2$ respectively which are opposite to each other. With the orientation of the boundary, it is agree that $l_{t_1,\omega(\theta)}$ and $l_{t_2,\omega(\theta)}$ are parallel but in opposite direction. Define $h_D$, the shadow function of D, by setting
+\begin{equation*}
+    h_D(\theta) = t_1
+\end{equation*}
+\begin{equation*}
+    h_D(\theta + \pi) = -t_2
+\end{equation*}
+Now the shadow function of D depends on $\theta$ belonging to an interval of $\pi$. As $\omega(\theta)$ is $2\pi$ - periodic, the shadow function $h_D$ can be regarded as $2\pi$ - periodic function defined the whole curve. The next problem is how can the boundary of D can be identified from $h_D$\\
+
+\noindent As $\omega(\theta) = (\cos(\theta),\sin(\theta))$ and $\hat{\omega}(\theta) = (\cos(\theta),\sin(\theta))$, (\ref{newformeq}) show that the set of points making the line $l_{h_D(\theta),\omega(\theta)}$ is given parametrically by
+\begin{equation*}
+    (x(\theta),y(\theta)) = \{h_D(\theta)(cos(\theta),sin(\theta)) + s(-sin(\theta),cos(\theta)) | s \in (-\infty,\infty)\}
+\end{equation*}
+With $s \in (-\infty,\infty)$, there are lots of points on the line $l_{h_D(\theta),\omega(\theta)}$, so we need to get the function $s(\theta)$ so that for each $\theta$, it represent a point on C and also make our function depends only on $\theta$.
+\begin{equation}\label{eqxy}
+    (x(\theta),y(\theta)) = h_D(\theta)(cos(\theta),sin(\theta)) + s(\theta)(-sin(\theta),cos(\theta))
+\end{equation}
+Now, we need to find the function $s(\theta)$. Witness that at the point of tangency, the direction of the tangent line to D is $\hat{\omega}(\theta)$. By differentiating the functions $(x(\theta),y(\theta))$, we can find the direction of the tangent line at the point $(x(\theta_0),y(\theta_0))$ with $\theta_0$ is a parameter value. Differentiating (\ref{eqxy}) and using the fact that $\partial_\theta \omega = \hat{\omega}$, we have
+\begin{equation*}
+    x'(\theta) = h'_D(\theta)cos(\theta) - h_D(\theta)sin(\theta) - s'(\theta)sin(\theta) - s(\theta)cos(\theta)
+\end{equation*}
+\begin{equation*}
+    y'(\theta) = h'_D(\theta)sin(\theta) + h_D(\theta)cos(\theta) + s'(\theta)cos(\theta) - s(\theta)sin(\theta)
+\end{equation*}
+Combining these 2 equations
+\begin{equation*}
+    (x'(\theta),y'(\theta)) = (h'_D(\theta) - s(\theta))(cos(\theta),sin(\theta)) + (h_D(\theta) + s'(\theta))(-sin(\theta),cos(\theta))
+\end{equation*}
+\begin{equation}
+    \Leftrightarrow(x'(\theta),y'(\theta)) = (h'_D(\theta) - s(\theta))\omega(\theta) + (h_D(\theta) + s'(\theta))\hat{\omega}(\theta)
+\end{equation}
+As the tangent line at $(x(\theta),y(\theta))$ is parallel to vector $\hat{\omega}(\theta)$, thus
+\begin{equation}\label{eqpara}
+    (x'(\theta),y'(\theta)) = (h_D(\theta) + s'(\theta))\hat{\omega}(\theta)
+\end{equation}
+When (\ref{eqpara}) happend, it is clear that 
+\begin{equation*}
+    (h'_D(\theta) - s(\theta))\omega(\theta) = 0
+\end{equation*}
+Because $\omega(\theta)$ can not be a zero vector, thus
+\begin{equation*}
+    h'_D(\theta) - s(\theta) = 0
+\end{equation*}
+\begin{equation}\label{eqs}
+    s(\theta) = h'_D(\theta) 
+\end{equation}
+From (\ref{eqxy}) and (\ref{eqs})
+\begin{equation}\label{eqbound}
+    (x(\theta),y(\theta)) = \{h_D(\theta)(cos(\theta),sin(\theta)) + h'(\theta)(-sin(\theta),cos(\theta))\}
+\end{equation}
+This is the parametrically function of the boundary of D with $h_D(\theta)$ is the shadow function of D.\\
+
+\noindent Notice that (\ref{eqbound}) is only true if D is strictly convex and $h_D(\theta)$ is a differentiable function. If D is a polygon, the boundary is not differentiable at the vertices, where sharp corners occur. At these points, the shadow function $h_D(\theta)$ may not be differentiable.\\ \\
+With (\ref{eqbound}) the tangent vector to the curve can be re-defined by
+\begin{equation*}
+    (x'(\theta),y'(\theta)) = (h''(\theta) + h(\theta))\hat{\omega}(\theta)
+\end{equation*}
+In the construction of the shadow function, the tangent vector to the curve at $(x(\theta),y(\theta))$ and $\hat{\omega}(\theta)$ point in the same direction. Which mean that
+\begin{equation*}
+    (x'(\theta),y'(\theta)) = k \hat{\omega}(\theta)
+\end{equation*}
+With $k \in Z^+$, therfore for all $\theta \in [0,2\pi]$
+\begin{equation}\label{seconddiff}
+    h''(\theta) + h(\theta) > 0
+\end{equation}
+And this gives a necessary condition for a twice differentiable function h to be the shadow function for a strictly convex region with a smooth boundary. 
+\section{Formula explaination}
+\subsection{Green's theorem}
+
+\subsection{Formula explaination}
+Using the Green's theorem, we can explain the formula of calculating the area of $D_h$ given in Exercise 1.2.14 in the book 
+\begin{equation*}
+    D_h = \frac{1}{2}\int^{2\pi}_0\left[(h(\theta))^2 - (h'(\theta))^2\right]d\theta 
+\end{equation*}
+The area $D_h$ is calculated by using the double integral of 1 in the reigon D
+\begin{equation}\label{areaeq1}
+    D_h = \iint_{D}dxdy
+\end{equation}
+From the Green's theorem, we know that
+\begin{equation}\label{greeneq}
+    \oint_C P(x,y)dx + Q(x,y)dy = \iint_{D} \bigg(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\bigg)dxdy
+\end{equation}
+If we choose P(x,y) = $\frac{-y}{2}$ and Q(x,y) = $\frac{x}{2}$ so
+\begin{equation}\label{eqpartialxy}
+    \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}= \frac{1}{2} - (-\frac{1}{2}) = 1
+\end{equation}
+From (\ref{eqpartialxy}), (\ref{areaeq1}) can be written as
+\begin{equation}\label{areaeq2}
+    D_h = \iint_D \bigg(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\bigg)dxdy
+\end{equation}
+From (\ref{greeneq}), (\ref{areaeq2}) is equal to
+\begin{equation}
+    D_h = \oint_C P(x,y)dx + Q(x,y)dy
+\end{equation}
+With P(x,y) = $\frac{-y}{2}$ and Q(x,y) = $\frac{x}{2}$
+\begin{equation}\label{areaeq3}
+    D_h = \oint_C \bigg(\frac{-y}{2}\bigg)dx + \bigg(\frac{x}{2}\bigg)dy
+\end{equation}
+With $x(\theta)$ and $y(\theta)$, we have
+\begin{equation*}
+    dx = x'd\theta
+\end{equation*}
+\begin{equation*}
+    dy = y'd\theta
+\end{equation*}
+Substitute to (\ref{areaeq3})
+\begin{equation*}
+    D_h = \oint_C \bigg[\bigg(\frac{-y}{2}\bigg)x' + \bigg(\frac{x}{2}\bigg)y'\bigg]d\theta
+\end{equation*}
+With $\theta \in \left[0,2\pi\right] $
+\begin{equation}\label{closeeq}
+    D_h = \frac{1}{2} {\int_0}^{2\pi} (xy' - x'y) d\theta
+\end{equation}
+From the above section, we know the functions of x and y base on $\theta$
+\begin{equation}\label{xtheta}
+    x(\theta) = h_D(\theta)cos(\theta) - h'_D(\theta)sin(\theta)
+\end{equation}
+\begin{equation}\label{ytheta}
+    y(\theta) = h_D(\theta)sin(\theta) + h'_D(\theta)cos(\theta)
+\end{equation}
+Also, the derivative functions of x and y
+\begin{equation}\label{x'theta}
+    x'(\theta) = \left[ h''_D(\theta) + h_D(\theta)\right]\left[-sin(\theta)\right] 
+\end{equation}
+\begin{equation}\label{y'theta}
+    y'(\theta) = \left[ h''_D(\theta) + h_D(\theta)\right]cos(\theta) 
+\end{equation}
+From (\ref{xtheta}),(\ref{ytheta}),(\ref{x'theta}),(\ref{y'theta}), (\ref{closeeq}) become
+\begin{equation*}
+    \begin{aligned}
+    D_h ={} & \frac{1}{2} \int_0^{2\pi} \big(\left[h_D(\theta)cos(\theta) - h'_D(\theta)sin(\theta)\right]\left[ h''_D(\theta) + h_D(\theta)\right]cos(\theta) \\
+          & - \left[ h''_D(\theta) + h_D(\theta)\right]\left[-sin(\theta)\right] \left[h_D(\theta)sin(\theta) + h'_D(\theta)cos(\theta)\right]\big)  d\theta
+    \end{aligned}
+\end{equation*}
+Take $\left[ h''_D(\theta) + h_D(\theta)\right]$ as the common factor
+\begin{equation*}
+    \begin{aligned}
+    D_h ={} & \frac{1}{2} \int_0^{2\pi} \big(\left[ h''_D(\theta) + h_D(\theta)\right]\\ 
+            & \left[h_D(\theta)cos^2(\theta) - h'_D(\theta)sin(\theta)cos(\theta) + h_D(\theta)sin^2(\theta) + h'_D(\theta)sin(\theta)cos(\theta)\right]\big)d\theta
+    \end{aligned}
+\end{equation*}
+With $h_D(\theta)cos^2(\theta) + h_D(\theta)sin^2(\theta) = h_D(\theta)$
+\begin{equation*}
+    D_h = \frac{1}{2} \int_0^{2\pi} \big( \left[ h''_D(\theta) + h_D(\theta)\right] h_D(\theta)\big)d\theta
+\end{equation*}
+Thus we have,
+\begin{equation*}
+    D_h = \frac{1}{2} {\int_0}^{2\pi} \left[h_D(\theta)^2 + h_D(\theta)h''_D(\theta)\right] d\theta
+\end{equation*}
+Consider each part of the integral
+\begin{equation*}
+    D_h = \frac{1}{2} {\int_0}^{2\pi} h_D(\theta)^2 d\theta + \frac{1}{2} {\int_0}^{2\pi} \left[ h_D(\theta)h''_D(\theta)\right] d\theta
+\end{equation*}
+Using each part integral
+\begin{equation*}
+    D_h = \frac{1}{2} {\int_0}^{2\pi} h_D(\theta)^2 d\theta + \frac{1}{2} \bigg[ h_D(\theta)h'_D(\theta)\Big|_0^{2\pi} - {\int_0}^{2\pi} \left[ h'_D(\theta)^2\right]\bigg] d\theta
+\end{equation*}
+As $h_D(\theta)$ is $2\pi$ periodically, thus $h_D(0)$ and $h_D(2\pi)$ present the same point on the shadow of D
+\begin{equation*}
+    h_D(\theta)h'_D(\theta)\Big|_0^{2\pi} = h_D(2\pi)h'_D(2\pi) - h_D(0)h'_D(0) = 0
+\end{equation*}
+Finally, we obtain
+\begin{equation}\label{area}
+    D_h = \frac{1}{2} \int_0^{2\pi} \big((h_D(\theta))^2 - (h'_D(\theta))^2\big) d\theta
+\end{equation}
+However, (\ref{area}) can only be implided if the shadow function of D can satisfy (\ref{seconddiff})\\ \\
+As the area of D is always a positive number, so if D can satisfy (\ref{seconddiff}), from (\ref{area}) it is true that
+\begin{equation*}
+    \int_0^{2\pi} (h'_D(\theta))^2 d\theta < \int_0^{2\pi} (h_D(\theta))^2 d\theta
+\end{equation*}
+\section{Conclusion}
+That is some basic information of a method in reconstructing the two-dimensional object from its shadow. Although, this method still have some drawbacks as it requires the object to be strictly convex with smooth boundaries and the function $h(\theta)$ is twice differntiable but it gives us a clear understanding of how to reconstructing an object from the shadow. 
+\begin{thebibliography}{200}
+
+    \bibitem{Medical Imaging}
+    Charles L. Epstein,\textit{ Introduction to the Mathematics
+    of Medical Imaging}, 2nd ed. Philadelphia, Pennsylvania: University of Pennsylvania, 2007, pp. 19 - 25
+
+    \bibitem{Green theorem}
+    Eric W., ``Green's Theorem'' \textit{mathworld.wolfram.com}.[Online].Available: https://mathworld.wolfram.com/GreensTheorem.html.[Accessed: March. 25, 2024].
+\end{thebibliography}
+\end{document}
+
