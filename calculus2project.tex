@@ -423,6 +423,99 @@ And this gives a necessary condition for a twice differentiable function h to be
 \subsection{Green's theorem}
 % Khang thêm phần lý thuyết vào đây nhen
 %\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\subsubsection{Introduction}
+Green’s Theorem gives the relationship between a line integral around a simple closed curve C and a double integral over the plane D region bounded by C. In stating Green's Theorem we use the convention positive orientation of a simple closed curve C refers to a single counterclockwise traversal of C. Thus if C is given by the vector function $\textbf{r}(t), a\leq t\leq b$, then the region D is always on the left as the point $\textbf{r}(t)$ traverses C.
+\subsubsection{Theorem}
+Let C be a positively oriented, piecewise-smooth. simple closed curve in the plane and let D be the region bounded by C. If P and Q have continuous partial derivatives on an open region and contains D, then
+\[\int_{C} Pdx+Qdy=\iint_{D}\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y} \right )dA\]
+\subsubsection{Proof}
+Green Theorem's can be proved for special cases where the region is both of type I and type II
+
+
+Theorem will be proved if we can show that
+\begin{equation}
+    \int_C Pdx=-\iint_{D} \dfrac{\partial P}{\partial y}dA
+\end{equation}
+and
+\begin{equation}
+    \int_C Qdy=\iint_{D} \dfrac{\partial Q}{\partial x}dA
+\end{equation}
+\begin{center}
+    
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,302); %set diagram left start at 0, and has height of 302
+
+%Straight Lines [id:da19430905107742658] 
+\draw    (300,40.23) -- (300,263.44) ;
+\draw [shift={(300,38.23)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4287073773589094] 
+\draw    (176.99,220.01) -- (698.6,219.06) ;
+\draw [shift={(700.6,219.06)}, rotate = 179.9] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8447345131231538] 
+\draw    (372,85.23) -- (372,180.44) ;
+\draw [shift={(372,137.84)}, rotate = 270] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da11142857371682324] 
+\draw    (562,105.23) -- (562,160.44) ;
+\draw [shift={(562,126.34)}, rotate = 90] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Curve Lines [id:da8576864478185466] 
+\draw    (372,85.23) .. controls (412,55.23) and (525.6,112.84) .. (562,105.23) ;
+\draw [shift={(461.52,85.12)}, rotate = 14.02] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Curve Lines [id:da27638538117476585] 
+\draw    (372,180.44) .. controls (423.6,196.84) and (522,190.44) .. (562,160.44) ;
+\draw [shift={(474.59,187.53)}, rotate = 174.68] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da2767488562612568] 
+\draw    (372,213.23) -- (372,224.44) ;
+%Straight Lines [id:da1819184811930914] 
+\draw    (562,214.23) -- (562,225.44) ;
+
+% Text Node
+\draw (696.24,198.16) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (304.64,35.56) node [anchor=north west][inner sep=0.75pt]    {$y$};
+% Text Node
+\draw (520.24,185.16) node [anchor=north west][inner sep=0.75pt]    {$C_{1}$};
+% Text Node
+\draw (574.24,121.16) node [anchor=north west][inner sep=0.75pt]    {$C_{2}$};
+% Text Node
+\draw (473.24,56.16) node [anchor=north west][inner sep=0.75pt]    {$C_{3}$};
+% Text Node
+\draw (338.24,118.16) node [anchor=north west][inner sep=0.75pt]    {$C_{4}$};
+% Text Node
+\draw (367.24,222.16) node [anchor=north west][inner sep=0.75pt]    {$a$};
+% Text Node
+\draw (555.24,225.16) node [anchor=north west][inner sep=0.75pt]    {$b$};
+
+
+\end{tikzpicture}
+\end{center}
+Prove Equation (1) by expressing D as a type I region:
+\[D=\{(x,y)|a\leq x \leq b,g_1(x) \leq y \leq g_2(x)\}\]
+where $g_1$ and $g_2$ are continuous functions. This enables us to calculate the double integral on the right side of Equation (1):
+\begin{equation}
+    \iint_D \dfrac{\partial P}{\partial y}dA=\int_a^b \int_{g_1(x)}^{g_2(x)} \dfrac{\partial P}{\partial y}(x,y)dy dx=\int_a^b [P(x,g_2(x))-P(x,g_1(x))]dx
+\end{equation}
+
+Now we compute the left side of equation (1) by breaking up C as the union of four curves $C_1$, $C_2$, $C_3$, and $C_4$ shown in the Figure above. On $C_1$ take $x$ as the parameter and write the parametric equation as $x=x$, $y=g_1(x)$, $a\leq x \leq b$. Thus
+\[\int_{C_1}P(x,y)dx=\int_a^b P(x,g_1(x))dx\]
+and
+\[\int_{C_3}P(x,y)dx=-\int_a^b P(x,g_2(x))dx\]
+On $C_2$ or $C_4$, $x$ is constant, so $dx=0$ and 
+\[\int_{C_2}P(x,y)dx=\int_{C_4}P(x,y)dx=0\]
+Hence
+\[\int_C P(x,y)dx=\int_{C_1}P(x,y)dx +\int_{C_2}P(x,y)dx+ \int_{C_3}P(x,y)dx+\int_{C_4}P(x,y)dx\]
+\[\Leftrightarrow \int_C P(x,y)dx=\int_a^b [P(x,g_1(x) -P(x,g_2(x))]dx\]
+ Compare with Equation (3), we can see that:
+ \[\int_C Pdx=-\iint_{D} \dfrac{\partial P}{\partial y}dA\]
+ A similar treatment yields Equation (2) for regions of type II.
+ \subsubsection{Application in area calculation}
+ Green's Theorem can be used to compute area by line integral. The area of a planar region 
+D is given by:
+\[A=\iint_D dA\]
+Choose P and Q such that $\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}=1$, the area is given by:
+\[A=\int_C (Pdx+Qdy)\]
 
 
 
